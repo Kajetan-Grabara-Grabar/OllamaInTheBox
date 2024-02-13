@@ -1,4 +1,4 @@
 #!/bin.sh
-ollama serve & </dev/null &>/dev/null &
+ollama serve &
 sleep 10
 ollama pull llama2
