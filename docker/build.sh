@@ -1,4 +1,5 @@
 #!/bin.sh
+MODEL=$1
 ollama serve &
 sleep 10
-ollama pull llama2
+ollama pull $MODEL
