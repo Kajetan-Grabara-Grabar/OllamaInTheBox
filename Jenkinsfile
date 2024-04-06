@@ -20,7 +20,7 @@ spec:
 
     node(POD_LABEL) {
         stage('Kanico') {
-            git url:'https://github.com/Kajetan-Grabara-Grabar/OllamaInTheBox.git', branch: 'dev'
+            // git url:'https://github.com/Kajetan-Grabara-Grabar/OllamaInTheBox.git', branch: 'dev'
             container('kaniko') {
                 stage('Build image with Kanico') {
                     sh '/kaniko/executor --help'
