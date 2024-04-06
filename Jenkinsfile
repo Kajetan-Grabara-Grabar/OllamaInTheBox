@@ -37,7 +37,7 @@ spec:
             container('kaniko') {
                 stage('Build image with Kanico') {
                     sh 'cd docker'
-                    sh '/kaniko/executor --dockerfile . --build-arg MODEL=mistral --tar-path . --no-push'
+                    sh '/kaniko/executor --dockerfile ./Dockerfile --build-arg MODEL=mistral --tar-path . --no-push'
                     sh 'ls -al'
                     sh 'pwd'
                 }
