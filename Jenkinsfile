@@ -59,4 +59,9 @@ spec:
         }
 
     }
+    post {
+        always {
+            archiveArtifacts artifacts: '${MODEL_NAME}-${BUILD_NUMBER}.tar', fingerprint: true
+        }
+    }
 }
