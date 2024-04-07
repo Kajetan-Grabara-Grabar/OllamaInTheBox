@@ -41,7 +41,7 @@ spec:
             git url:'https://github.com/Kajetan-Grabara-Grabar/OllamaInTheBox.git', branch: "$BRANCH"
             container('kaniko') {
                 stage('Build image with Kanico') {
-                    sh "/kaniko/executor --dockerfile docker/Dockerfile --build-arg MODEL=${MODEL_NAME} --tar-path ${MODEL}-${BUILD_NUMBER}.tar --no-push --context docker"
+                    sh "/kaniko/executor --dockerfile docker/Dockerfile --build-arg MODEL=${MODEL_NAME} --tar-path ${MODEL_NAME}-${BUILD_NUMBER}.tar --no-push --context docker"
                     sh "ls -al"
                 }
             }
