@@ -29,7 +29,8 @@ spec:
                 selectedValue: 'NONE',
                 sortMode: 'NONE',
                 tagFilter: '*',
-                type: 'PT_BRANCH'),
+                type: 'PT_BRANCH'
+            ),
             booleanParam(
                 defaultValue: false, 
                 description: 'Do you want to push the image to the ECR', 
@@ -62,6 +63,5 @@ spec:
                 }
             }
         }
-
     }
 }
