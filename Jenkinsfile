@@ -19,21 +19,32 @@ spec:
 ) {
     properties([
         parameters([
-            gitParameter(branch: '',
-                        branchFilter: 'origin/(.*)',
-                        defaultValue: 'main',
-                        description: '',
-                        name: 'BRANCH',
-                        quickFilterEnabled: false,
-                        selectedValue: 'NONE',
-                        sortMode: 'NONE',
-                        tagFilter: '*',
-                        type: 'PT_BRANCH'),
-        string(
+            gitParameter(
+                branch: '',
+                branchFilter: 'origin/(.*)',
+                defaultValue: 'main',
+                description: '',
+                name: 'BRANCH',
+                quickFilterEnabled: false,
+                selectedValue: 'NONE',
+                sortMode: 'NONE',
+                tagFilter: '*',
+                type: 'PT_BRANCH'),
+            booleanParam(
+                defaultValue: false, 
+                description: 'Do you want to push the image to the ECR', 
+                name: 'PUSH'
+            ),
+            booleanParam(
+                defaultValue: false, 
+                description: 'Do you want to save the image as an artifact', 
+                name: 'SAVE_ARTIFACTS'
+            ),
+            string(
                 defaultValue: 'tinydolphin', 
                 name: 'MODEL_NAME', 
                 trim: true
-        )
+            )
         ])
     ])
     node(POD_LABEL) {
