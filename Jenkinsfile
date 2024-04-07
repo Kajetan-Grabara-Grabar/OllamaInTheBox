@@ -55,7 +55,7 @@ spec:
                     script {
                         sh "/kaniko/executor --dockerfile docker/Dockerfile --build-arg MODEL=${MODEL_NAME} --tar-path ${MODEL_NAME}-${BUILD_NUMBER}.tar --no-push --context docker"
                         sh "ls -al"
-                        if ($MODEL_NAME){
+                        if ($SAVE_ARTIFACTS){
                             archiveArtifacts artifacts: "${MODEL_NAME}-${BUILD_NUMBER}.tar", fingerprint: true
                         }
                     }
