@@ -29,17 +29,19 @@ spec:
                         sortMode: 'NONE',
                         tagFilter: '*',
                         type: 'PT_BRANCH')
-        ])
+        ]),
+        string(
+                defaultValue: 'tinydolphin', 
+                name: 'MODEL_NAME', 
+                trim: true
+        )
     ])
     node(POD_LABEL) {
         stage('Kanico') {
             git url:'https://github.com/Kajetan-Grabara-Grabar/OllamaInTheBox.git', branch: "$BRANCH"
             container('kaniko') {
                 stage('Build image with Kanico') {
-                    // sh 'cd docker'
-                    sh '/kaniko/executor --dockerfile docker/Dockerfile --build-arg MODEL=tinydolphin --tar-path image.tar --no-push --context docker'
-                    sh 'ls -al'
-                    sh 'pwd'
+                    sh "/kaniko/executor --dockerfile docker/Dockerfile --build-arg MODEL=${MODEL_NAME} --tar-path ${MODEL}-${BUILD_NUMBER}.tar --no-push --context docker"
                 }
             }
         }
